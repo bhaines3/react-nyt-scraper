@@ -64,7 +64,7 @@ class Home extends Component {
           </div>
           <div className="input-group">
             <button 
-            className="btn btn-success "
+            className="btn btn-primary "
             onClick={this.handleSearch}
             >Search</button>
           </div>

@@ -3,7 +3,7 @@ import {Link, NavLink} from 'react-router-dom';
 
 const Nav = () => {
   return (
-    <nav className="navbar navbar-default">
+    <nav className="navbar navbar-inverse">
       <div className="container-fluid">
         {/* Brand and toggle get grouped for better mobile display */}
         <div className="navbar-header">
@@ -13,7 +13,7 @@ const Nav = () => {
             <span className="icon-bar" />
             <span className="icon-bar" />
           </button>
-          <Link className="navbar-brand" to="/">NYT React</Link>
+          <Link className="navbar-brand text-warning" to="/">New York Times Scraper</Link>
         </div>
         {/* Collect the nav links, forms, and other content for toggling */}
         <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -23,7 +23,7 @@ const Nav = () => {
               to="/" 
               activeStyle={{
                 fontWeight: 'bold',
-                color: 'red'
+                color: 'white'
               }}
             >Home</NavLink></li>
 
@@ -31,7 +31,7 @@ const Nav = () => {
               to="/saved"
               activeStyle={{
                 fontWeight: 'bold',
-                color: 'red'
+                color: 'white'
               }}
             >Saved</NavLink></li>
           </ul>
