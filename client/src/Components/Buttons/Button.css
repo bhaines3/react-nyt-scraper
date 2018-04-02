@@ -1,0 +1,10 @@
+.delete-btn {
+    float: right;
+    color: #e74944;
+  }
+  
+  .save-btn {
+    float: right;
+    margin-right: 20px;
+    color: #0b127c;
+  }

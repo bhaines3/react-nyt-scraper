@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
+import "./Home.css";
 import Panel from '../../Components/Panel';
 import API from '../../utils/API';
+import {SaveBtn} from "../../Components/Buttons";
+
 
 class Home extends Component {
   state = {
@@ -31,6 +34,12 @@ class Home extends Component {
     
   }
 
+  saveArticle = article => {
+    API.saveArticle({title: article.headline.main, url: article.web_url})
+    .then(alert('Article saved!'))
+    .catch(err => console.log(err));
+  }
+
   render() {
     return (
       <div className="container-fluid">
@@ -38,7 +47,7 @@ class Home extends Component {
           <div className="input-group">
             <h4 className="text-center">Topic</h4>
             <input 
-              className="input form-control" 
+              className="form-control" 
               value={this.state.q}
               name="q"
               onChange={this.handleChange}
@@ -47,7 +56,7 @@ class Home extends Component {
           <div className="input-group">
             <h4 className="text-center">Start Year</h4>
             <input 
-              className="input form-control" 
+              className="form-control" 
               value={this.state.start_year}
               name="start_year"
               onChange={this.handleChange}
@@ -56,21 +65,28 @@ class Home extends Component {
           <div className="input-group">
             <h4 className="text-center">End Year</h4>
             <input 
-              className="input form-control" 
+              className="form-control" 
               value={this.state.end_year}
               name="end_year"
               onChange={this.handleChange}
             />
           </div>
-          <div className="input-group">
+          <div className="searchBtn text-center">
             <button 
-            className="btn btn-primary "
+            className="btn btn-primary"
             onClick={this.handleSearch}
             >Search</button>
           </div>
         </Panel>
         <Panel title={"Results"}>
-          <div>inside results</div>
+          <div className="ArticleResults">
+            {this.state.articles.map(article => (
+              <div key={article._id}>
+                <a href={article.web_url} target="_blank">{article.headline.main}</a>
+                <SaveBtn onClick={() => this.saveArticle(article)} />
+              </div>
+            ))}
+          </div>
         </Panel>
       </div>
     );

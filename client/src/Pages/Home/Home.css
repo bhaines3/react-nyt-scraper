@@ -1,0 +1,13 @@
+.input-group {
+    margin: auto;
+    min-width: 800px;
+}
+
+.ArticleResults > div {
+   margin: 10px;
+}
+
+.btn-primary {
+    margin-top: 10px;
+}
+
