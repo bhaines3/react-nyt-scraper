@@ -39,3 +39,6 @@ If you wish to clone the app down to your local machine...
 #### Note that the get routes include an **internal route** to `/api/saved` for querying and displaying all the bookmarked articles from the Mongo database.
 
 #### Note that the get routes also include an **external route** to `https://api.nytimes.com/svc/search/v2/articlesearch.json` for querying the New York Times.
+
+## Authors
+* **Brandon Haines** - [GitHub](https://github.com/bhaines3)
