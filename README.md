@@ -26,8 +26,12 @@ If you wish to clone the app down to your local machine...
 #### Users are able to submit a topic, start year, and end year to query the New York Times
 ![Query Articles](/images/homepage.png)
 
+
+
 #### When you click the download icon it will save the article in your saved page
 ![Article Content](/images/savedArticle.png)
+
+
 
 #### Click on Saved in the Navbar and it will show you all of your saved articles with the option to delete by clicking on the red "x"
 ![Add Comment](/images/savedPage.png)
