@@ -24,8 +24,8 @@ class Home extends Component {
   handleSearch = () => {
     API.getArticles({
       q: this.state.q,
-      start_year: this.state.start_year,
-      end_year: this.state.end_year
+      begin_date: this.formatDate(this.state.start_year),
+      end_date: this.formatDate(this.state.end_year)
     }).then((res) => {
       this.setState({
         articles: res.data
@@ -34,8 +34,25 @@ class Home extends Component {
     
   }
 
+  formatDate = (date) => {
+    var d = new Date(date),
+      month = '' + (d.getMonth() + 1),
+      day = '' + d.getDate(),
+      year = d.getFullYear();
+
+    if (month.length < 2) month = '0' + month;
+    if (day.length < 2) day = '0' + day;
+
+    return [year, month, day].join('-');
+  }
+
   saveArticle = article => {
-    API.saveArticle({title: article.headline.main, url: article.web_url})
+    API.saveArticle({
+      title: article.headline.main,
+      url: article.web_url, 
+      _id: article._id,
+      date: article.pub_date
+    })
     .then(alert('Article saved!'))
     .catch(err => console.log(err));
   }
@@ -54,7 +71,7 @@ class Home extends Component {
             />
           </div>
           <div className="input-group">
-            <h4 className="text-center">Start Year</h4>
+            <h4 className="text-center">Start Date</h4>
             <input 
               className="form-control" 
               value={this.state.start_year}
@@ -63,7 +80,7 @@ class Home extends Component {
             />
           </div>
           <div className="input-group">
-            <h4 className="text-center">End Year</h4>
+            <h4 className="text-center">End Date</h4>
             <input 
               className="form-control" 
               value={this.state.end_year}

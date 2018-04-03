@@ -12,9 +12,9 @@ module.exports = {
   create: function (req, res) {
     const article = {
       _id: req.body._id,
-      title: req.body.headline.main,
-      url: req.body.web_url,
-      date: new Date()
+      title: req.body.title,
+      url: req.body.url,
+      date: req.body.date
     };
     // Grab every document in the Articles collection
     db.Article.create(article)
