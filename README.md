@@ -1,43 +1,37 @@
-# Create React Express App
+# :newspaper: NY Times ReactJS App :statue_of_liberty:
+A `NodeJS`, `MongoDB`, `Express`, and `ReactJS` application where users can query, display, and save articles from the [New York Times Article Search API](http://developer.nytimes.com/). Users can remove saved articles as well.
 
-## About This Boilerplate
+Please check out the deployed version in Heroku [here](https://nyt-news-react.herokuapp.com/)!
 
-This setup allows for a Node/Express/React app which can be easily deployed to Heroku.
+Click on the headlines to be re-directed to the full New York Times articles.
 
-The front-end React app will auto-reload as it's updated via webpack dev server, and the backend Express app will auto-reload independently with nodemon.
 
-## Starting the app locally
+## Functionality
+On the backend, the app uses `express` to serve routes and `mongoose` to interact with a `MongoDB` database.
 
-Start by installing front and backend dependencies. While in this directory, run the following commands:
+On the frontend, the app uses `ReactJS` for rendering components, `axios` for internal/external API calls, and `bootstrap` as a styling framework.
 
-```
-yarn install
-cd client
-yarn install
-cd ..
-``
+## Cloning down the repo
+If you wish to clone the app down to your local machine...
+  1. Ensure that you have MongoDB set up on your laptop
+    * An amazing repo to get you started with that can be found [here](https://github.com/dannyvassallo/mongo_lesson).
+  2. Once you are set up, `cd` into this repo and run `npm install`.
+  3. Then open another bash or terminal window and run `mongod`
+  4. Run the script with `node server.js`.
+  5. Navigate to `localhost:3000` in your browser.
 
-After both installations complete, run the following command in your terminal:
 
-```
-yarn start
-```
 
-That's it, your app should be running on <http://localhost:3000>. The Express server should intercept any AJAX requests from the client.
+## Screenshots
+#### Users are able to submit a topic, start year, and end year to query the New York Times
+![Query Articles](/images/homepage.png)
 
-## Deployment (Heroku)
+#### When you click the download icon it will save the article in your saved page
+![Article Content](/images/savedArticle.png)
 
-After confirming that you have an up to date git repository and a Heroku app created, complete the following:
+#### Click on Saved in the Navbar and it will show you all of your saved articles with the option to delete by clicking on the red "x"
+![Add Comment](/images/savedPage.png)
 
-1. Build the React app for production by running the following command:
+#### Note that the get routes include an **internal route** to `/api/saved` for querying and displaying all the bookmarked articles from the Mongo database.
 
-```
-yarn build
-```
-> Note: A yarn build will be required to register any new Post requests from any front-end JavaScript to to prevent any proxy server errors.
-
-2. Add and commit all changes to git
-
-3. Push to Heroku
-
-If all previous steps were followed correctly, your application should be deployed to Heroku!
+#### Note that the get routes also include an **external route** to `https://api.nytimes.com/svc/search/v2/articlesearch.json` for querying the New York Times.
